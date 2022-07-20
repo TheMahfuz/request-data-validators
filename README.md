@@ -48,7 +48,7 @@ You have to pass this type of format array in calling the format method
 ```javascript
 [{ "update_quantity": 'int', "inventory_item_id": "int" }]
 ```
-### list of the value of type in type method:
+### List of the value of type in type method:
 
 | type | Decription |
 |------|------------|

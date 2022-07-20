@@ -2,7 +2,7 @@
 ### Dependencies
 Express.js
 ### Submited Data validation
-You can use this validator by require the request-validator
+You can use this validator by requiring the "request-validator" like below:
 ```javascript
 let Request = require('./request-validator');
 let request = new Request(req,res);
@@ -12,7 +12,7 @@ let data = {
     "value2": request.body(request,true,'Value 2').type('int').allow([0,1]).val()
 }
 ```
-you have to call validate method to validate all data;
+you have to call validate method to validate all data
 ```javascript
 request.validate()
 ```
@@ -21,7 +21,11 @@ if success it return true if failure it redirect to back by defalut with old dat
 let errors = Req.flash('errors')[0],
 let old = Req.flash('old')[0]
 ```
-### Request methods:
+if you want to get the errors in json format then you have to provide false as parameter in validate method
+```javascript
+let errors = request.validate(false)
+```
+### Request validator methods:
 | Methods | Parameters | Decription|
 |---------|------------|-----------|
 | get/params| key(string) | retrive the value url params |

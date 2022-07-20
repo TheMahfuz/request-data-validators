@@ -42,7 +42,13 @@ let errors = request.validate(false)
 | format | type(string="array_obj"), format(array of object),custom_message(string) | validate the provide array is correct format |
 | val| N/A | finally return the value |
 | validate| isRedirect(bool) | validate all required validation and return the result |
-### type methods params as type:
+
+### Example of format array :
+You have to pass this type of format array in calling the format method
+```javascript
+[{ "update_quantity": 'int', "inventory_item_id": "int" }]
+```
+### list of the value of type in type method:
 
 | type | Decription |
 |------|------------|

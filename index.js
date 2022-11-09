@@ -385,4 +385,11 @@ module.exports = class RequestData {
             return true;
         }
     }
+    /**
+     * Validate request data
+     * @returns {boolean}
+    */
+    validate(auto_response = false) {
+        return this.isValidate(auto_response)
+    }
 }

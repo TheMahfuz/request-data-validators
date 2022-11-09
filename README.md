@@ -4,26 +4,26 @@ Express.js
 ### Submited Data validation
 You can use this validator by requiring the "request-validator" like below:
 ```javascript
-let Request = require('./request-data-validators');
-let request = new Request(req,res);
+let RequestDataValidator = require('./request-data-validators');
+let validator = new RequestDataValidator(req,res);
 
 let data = {
-    "value1": request.body(request,true,'Value 1').type('int').val(),
-    "value2": request.body(request,true,'Value 2').type('int').allow([0,1]).val()
+    "value1": validator.body(request,true,'Value 1').type('int').val(),
+    "value2": validator.body(request,true,'Value 2').type('int').allow([0,1]).val()
 }
 ```
-you have to call validate method to validate all data
+you have to call isValidate method to check that all data is validate
 ```javascript
-request.validate()
+let is_validated = validator.isValidate()
 ```
-if success it return true if failure it redirect to back by defalut with old data erros in flash. YOu can retrive old data and error like below
+if you provide true as parameter then it redirect to back by defalut with old data erros in flash. YOu can retrive old data and error like below
 ```javascript
 let errors = Req.flash('errors')[0],
 let old = Req.flash('old')[0]
 ```
-if you want to get the errors in json format then you have to provide false as parameter in validate method
+if you want to get the errors in json format
 ```javascript
-let errors = request.validate(false)
+let errors = validator.errors.details;
 ```
 ### Request validator methods:
 | Methods | Parameters | Decription|

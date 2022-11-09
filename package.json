@@ -1,11 +1,12 @@
 {
-  "name": "validators",
+  "name": "request-data-validators",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a package for validating request data in the express app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Mahfuz",
+  "keywords": [],
+  "author": "mahfuzcse32@gmail.com",
   "license": "ISC"
 }

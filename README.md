@@ -4,7 +4,7 @@ Express.js
 ### Submited Data validation
 You can use this validator by requiring the "request-validator" like below:
 ```javascript
-let Request = require('./request-validator');
+let Request = require('./request-data-validators');
 let request = new Request(req,res);
 
 let data = {
@@ -38,10 +38,11 @@ let errors = request.validate(false)
 | maxNumber | value(int),custom_message(string)|validate maximum number of the value |
 | disallow | values(array), custom_message(string) | validate if disallow value is provided |
 | allow | values(array), custom_message(string) | validate the value is from allowed list |
+| custom | callback function, custom_message(string) | return true of false from the callback methods |
 | sameAs | key(string), custom_message(string) | check the value is same as others value |
 | format | type(string="array_obj"), format(array of object),custom_message(string) | validate the provide array is correct format |
 | val| N/A | finally return the value |
-| validate| isRedirect(bool) | validate all required validation and return the result |
+| validate| auto_response(bool) | validate all required validation and return the result |
 
 ### Example of format array :
 You have to pass this type of format array in calling the format method

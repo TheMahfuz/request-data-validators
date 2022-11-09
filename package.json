@@ -1,6 +1,6 @@
 {
   "name": "request-data-validators",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is a package for validating request data in the express app",
   "main": "index.js",
   "scripts": {

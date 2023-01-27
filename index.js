@@ -61,7 +61,7 @@ module.exports = class RequestData {
         this.value = this.Request.body[key];
         this.typeOfValue = typeof this.Request.body[key];
 
-        if (this.Request.body[key] !== 0) {
+        if (this.Request.body[key] !== 0 && this.Request.body[key] != false) {
             if ((!this.Request.body[key] && isRequired == true)) {
                 if (typeof this.errors.details[key] == 'undefined') {
                     this.errors.length = this.errors.length + 1;
@@ -369,6 +369,15 @@ module.exports = class RequestData {
                 resp.error.details = vs.details;
                 if (auto_response) {
                     this.Response.status(400).send(resp);
+                    if (this.logger) {
+                        try {
+                            this.logger.log({
+                                level: 'error', label: vs.error_code, data: resp.error, request_id: this.Request.request_id
+                            })
+                        } catch (err) {
+                            console.log(err)
+                        }
+                    }
                     return false;
                 }
                 else return resp.error;

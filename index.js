@@ -61,7 +61,7 @@ module.exports = class RequestData {
         this.value = this.Request.body[key];
         this.typeOfValue = typeof this.Request.body[key];
 
-        if (this.Request.body[key] !== 0 && this.Request.body[key] != false) {
+        if (this.Request.body[key] !== 0 && this.Request.body[key] !== false) {
             if ((!this.Request.body[key] && isRequired == true)) {
                 if (typeof this.errors.details[key] == 'undefined') {
                     this.errors.length = this.errors.length + 1;
@@ -229,7 +229,7 @@ module.exports = class RequestData {
      * @returns instance
      */
     disallow(values, message = '') {
-        if (this.value || this.value === 0) {
+        if ((this.value || this.value === 0 || this.value === false)) {
             let match = false;
             for (let value in values) {
                 if (this.value == values[value]) {
@@ -255,7 +255,7 @@ module.exports = class RequestData {
      * @returns instance
      */
     allow(values, message = '') {
-        if ((this.value || this.value === 0)) {
+        if ((this.value || this.value === 0 || this.value === false)) {
             let match = false;
             for (let value in values) {
                 if (this.value == values[value]) {
